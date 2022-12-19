@@ -24,13 +24,6 @@ suckless status bar off all, a clock.
         * Only allow clients to "fullscreen" into space currently given to them.
 
 
-# Versions
-Version number is located in the version file
-
-- 1 : added cropwindows
-- 2 : added fakefullscreen and config edit
-
-
 # Working On / Desired Additions
 
 - dvorak native use, with my keyboard layout.
