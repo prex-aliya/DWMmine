@@ -33,16 +33,19 @@ suckless status bar off all, a clock.
     * goback
     * xtile
     * stacker
+    * multikey
     * freespace
     * exresize
     * defaultlayooutpermonitor
     * keypressrelease
     * current_desktop
     * cool_autostart
+    * reorganizetags
     * ~~fakefullscreen~~
     * ~~cropwindows~~
     * ~~cursorwarp~~
     * ~~doublepressquit~~
+    * ~~keychain~~
     * ~~sticky~~
-- ~~merged config.mk with Makefile~~ 
+- custom patch for multiple layers of tags
 - ~~remove status bar.~~

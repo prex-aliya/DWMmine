@@ -18,9 +18,9 @@ static const char *colors[][3]      = {
 /* appearance }}} */
 
 /* tagging -------------------------------------------------{{{ */
+//static unsigned const int layers = 3;
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
     "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" };
-static char lockfile[] = "/tmp/dwm.lock"; /* Lockfile */
 static const Rule rules[] = {
     /* xprop(1):
      *  WM_CLASS(STRING) = instance, class
@@ -54,10 +54,6 @@ static const Layout layouts[] = {
     { MODKEY|ShiftMask,             CHAIN,      KEY,      tag,            {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask|ShiftMask, CHAIN,      KEY,      toggletag,      {.ui = 1 << TAG} },
 
-/* helper for spawning shell commands in the pre dwm-5.0 fashion
- * #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
- */
-
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "/usr/local/bin/st", NULL };
@@ -80,7 +76,7 @@ static const Key keys[] = {
     { MODKEY,                       -1,                 XK_Tab,         view,               {0} },
     { MODKEY,                       -1,                 XK_q,           killclient,         {0} },
     { MODKEY|ShiftMask,             -1,                 XK_space,       togglefloating,     {0} },
-    { MODKEY,                       -1,                 XK_s,           togglesticky,       {0}},
+    { MODKEY,                       -1,                 XK_s,           togglesticky,       {0} },
 
     { MODKEY,                       -1,                 XK_0,           view,               {.ui = ~0 } },
     { MODKEY|ShiftMask,             -1,                 XK_0,           tag,                {.ui = ~0 } },
@@ -92,7 +88,8 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             -1,                 XK_g,           tagmon,             {.i = -1 } },
     { MODKEY,                       -1,                 XK_g,           tagmon,             {.i = +1 } },
 
-    /* TAGKEYS(                        -1,                 XK_ampersand,                       0) */
+    { MODKEY,                       -1,                 XK_z,           changelayer,        {0} },
+
 
     TAGKEYS(                        -1,                 XK_1,                               0)
     TAGKEYS(                        -1,                 XK_2,                               1)
@@ -103,6 +100,8 @@ static const Key keys[] = {
     TAGKEYS(                        -1,                 XK_7,                               6)
     TAGKEYS(                        -1,                 XK_8,                               7)
     TAGKEYS(                        -1,                 XK_9,                               8)
+
+    { MODKEY,                       XK_b,               XK_b,           view,               {.ui = 1 << 9} },
     TAGKEYS(                        XK_b,               XK_b,                               9)
     TAGKEYS(                        XK_b,               XK_1,                               9)
     TAGKEYS(                        XK_b,               XK_2,                               10)
@@ -113,6 +112,8 @@ static const Key keys[] = {
     TAGKEYS(                        XK_b,               XK_7,                               15)
     TAGKEYS(                        XK_b,               XK_8,                               16)
     TAGKEYS(                        XK_b,               XK_9,                               17)
+
+    { MODKEY,                       XK_m,               XK_m,           view,               {.ui = 1 << 18} },
     TAGKEYS(                        XK_m,               XK_m,                               18)
     TAGKEYS(                        XK_m,               XK_1,                               18)
     TAGKEYS(                        XK_m,               XK_2,                               19)
@@ -123,6 +124,8 @@ static const Key keys[] = {
     TAGKEYS(                        XK_m,               XK_7,                               24)
     TAGKEYS(                        XK_m,               XK_8,                               25)
     TAGKEYS(                        XK_m,               XK_9,                               26)
+
+
     { MODKEY|AltKey,                -1,                 XK_q,           quit,               {0} }, /* EXIT */
 };
 

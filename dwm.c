@@ -234,6 +234,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+static void changelayer();
 
 /* variables */
 static const char broken[] = "broken";
@@ -268,6 +269,10 @@ static Drw *drw;
 static Monitor *mons, *selmon;
 static Window root, wmcheckwin;
 static KeySym keychain = -1;
+
+/* Personal variables */
+static int current_layer = 0;
+
 
 /* configuration, allows nested code to access above variables */
 #include "config.h"
@@ -357,6 +362,19 @@ void cropresize(Client* c) {
            MIN(c->h, c->crop->y + c->crop->h), 0);
 }
 /* }}} */
+/* layout {{{ */
+void changelayer(const Arg *arg) {
+
+        FILE *fp;
+
+        current_layer += 1;
+
+        fp = fopen("/tmp/dwm.devo", "w");
+        fprintf(fp, "%d", current_layer);
+        fclose(fp);
+}
+/* }}} */
+
 
 void
 applyrules(Client *c)
@@ -1314,25 +1332,9 @@ propertynotify(XEvent *e)
 }
 
 void
-quit(const Arg *arg) /* This is part of doublepressquit patch */
-/* TODO: Fix the "time" 7 lines down*/
+quit(const Arg *arg)
 {
-    FILE *fd = NULL;
-    struct stat filestat;
-
-    if ((fd = fopen(lockfile, "r")) && stat(lockfile, &filestat) == 0) {
-        fclose(fd);
-        if (filestat.st_ctime <= time(NULL)-2) {
-            remove(lockfile); }
-    }
-    if ((fd = fopen(lockfile, "r")) != NULL) {
-        fclose(fd);
-        remove(lockfile);
-        running = 0;
-    } else {
-        if ((fd = fopen(lockfile, "a")) != NULL) {
-            fclose(fd); }
-    }
+    running = 0;
 }
 
 Monitor *
@@ -2106,12 +2108,18 @@ view(const Arg *arg)
     int i;
     unsigned int tmptag;
 
+    if (current_layer == 1) {
+            //arg = .ui = 1 << 10;
+    }
+
     if ((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags])
         return;
     selmon->seltags ^= 1; /* toggle sel tagset */
     if (arg->ui & TAGMASK) {
         selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
         selmon->pertag->prevtag = selmon->pertag->curtag;
+
+        //changelayer(NULL);
 
         if (arg->ui == ~0)
             selmon->pertag->curtag = 0;
