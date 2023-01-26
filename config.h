@@ -5,15 +5,30 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
+
+/* https://lospec.com/palette-list/cyberpunk-neons */
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
+/*                Darker > Lighter              */
+static const char col_pink1[]    =  "#0b001b";
+static const char col_pink2[]    =  "#4d004f";
+static const char col_pink3[]    =  "#c1115a";
+static const char col_pink4[]    =  "#e13a6a";
+
+static const char col_blue1[]    =  "#03274c";
+static const char col_blue2[]    =  "#03274c";
+static const char col_blue3[]    =  "#0f9595";
+static const char col_blue4[]    =  "#53ebe4";
+
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_pink1, col_pink3, col_pink4 },
+	[SchemeSel]  = { col_gray1, col_blue3, col_blue4 },
 };
 /* appearance }}} */
 
