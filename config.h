@@ -7,12 +7,6 @@ static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 
 /* https://lospec.com/palette-list/cyberpunk-neons */
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-
 /*                Darker > Lighter              */
 static const char col_pink1[]    =  "#0b001b";
 static const char col_pink2[]    =  "#4d004f";
@@ -28,7 +22,7 @@ static const char col_blue4[]    =  "#53ebe4";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_pink1, col_pink3, col_pink4 },
-	[SchemeSel]  = { col_gray1, col_blue3, col_blue4 },
+	[SchemeSel]  = { col_blue1, col_blue3, col_blue4 },
 };
 /* appearance }}} */
 
