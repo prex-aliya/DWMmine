@@ -73,7 +73,7 @@ static const char *screenlock[]  = { "slock", NULL };
 static const Key keys[] = {
     /* modifier                     chain               key             function            argument */
     { MODKEY,                       -1,                 XK_p,           spawn,              {.v = dmenucmd } },
-    { MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v =  } },
+    { MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v = dmenucmd2 } },
     { MODKEY|ShiftMask,             -1,                 XK_Return,      spawn,              {.v = termcmd } },
     { MODKEY,                       -1,                 XK_o,           spawn,              {.v = mouse}},
     { MODKEY,                       -1,                 XK_c,           spawn,              {.v = screenlock} },
