@@ -21,8 +21,8 @@ static const char col_blue4[]    =  "#53ebe4";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_pink1, col_pink3, col_pink4 },
-	[SchemeSel]  = { col_blue1, col_blue3, col_blue4 },
+	[SchemeNorm] = { col_pink4, col_pink4, col_pink4 },
+	[SchemeSel]  = { col_blue4, col_blue4, col_blue4 },
 };
 /* appearance }}} */
 
@@ -65,6 +65,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
+static const char *dmenucmd2[] = { "rofi -show run", NULL };
 static const char *termcmd[]  = { "/usr/local/bin/st", NULL };
 static const char *mouse[]  = { "xmouseless", NULL };
 static const char *screenlock[]  = { "slock", NULL };
@@ -72,6 +73,7 @@ static const char *screenlock[]  = { "slock", NULL };
 static const Key keys[] = {
     /* modifier                     chain               key             function            argument */
     { MODKEY,                       -1,                 XK_p,           spawn,              {.v = dmenucmd } },
+    { MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v =  } },
     { MODKEY|ShiftMask,             -1,                 XK_Return,      spawn,              {.v = termcmd } },
     { MODKEY,                       -1,                 XK_o,           spawn,              {.v = mouse}},
     { MODKEY,                       -1,                 XK_c,           spawn,              {.v = screenlock} },
