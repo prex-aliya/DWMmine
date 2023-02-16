@@ -8,21 +8,23 @@ static const char dmenufont[]       = "monospace:size=10";
 
 /* https://lospec.com/palette-list/cyberpunk-neons */
 /*                Darker > Lighter              */
-static const char col_pink1[]    =  "#0b001b";
-static const char col_pink2[]    =  "#4d004f";
-static const char col_pink3[]    =  "#c1115a";
-static const char col_pink4[]    =  "#e13a6a";
+static const char col_pink1[]   =  "#0b001b";
+static const char col_pink2[]   =  "#4d004f";
+static const char col_pink3[]   =  "#c1115a";
+static const char col_pink4[]   =  "#e13a6a";
 
-static const char col_blue1[]    =  "#03274c";
-static const char col_blue2[]    =  "#03274c";
-static const char col_blue3[]    =  "#0f9595";
-static const char col_blue4[]    =  "#53ebe4";
+static const char col_blue1[]   =  "#03274c";
+static const char col_blue2[]   =  "#03274c";
+static const char col_blue3[]   =  "#0f9595";
+static const char col_blue4[]   =  "#53ebe4";
 
+static const char col_red[]     = "#ff0546";
+static const char col_blue[]     = "#0ce6f2";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_pink4, col_pink4, col_pink4 },
-	[SchemeSel]  = { col_blue4, col_blue4, col_blue4 },
+	[SchemeNorm] = { col_blue, col_blue, col_blue },
+	[SchemeSel]  = { col_red, col_red, col_red },
 };
 /* appearance }}} */
 
