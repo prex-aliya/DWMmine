@@ -48,7 +48,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
 
-static const Layout layouts[] = {
+static const Layout layouts[] = { // TODO: remove symbol
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
@@ -67,23 +67,26 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-static const char *dmenucmd2[] = { "rofi -show run", NULL };
-static const char *termcmd[]  = { "/usr/local/bin/st", NULL };
+//static const char *dmenucmd2[] = { "rofi -show run", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *mouse[]  = { "xmouseless", NULL };
 static const char *screenlock[]  = { "slock", NULL };
 
 static const Key keys[] = {
     /* modifier                     chain               key             function            argument */
     { MODKEY,                       -1,                 XK_p,           spawn,              {.v = dmenucmd } },
-    { MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v = dmenucmd2 } },
+    //{ MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v = dmenucmd2 } },
     { MODKEY|ShiftMask,             -1,                 XK_Return,      spawn,              {.v = termcmd } },
     { MODKEY,                       -1,                 XK_o,           spawn,              {.v = mouse}},
     { MODKEY,                       -1,                 XK_c,           spawn,              {.v = screenlock} },
 
-    { MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
-    { MODKEY|ControlMask|ShiftMask, -1,                 XK_g,           incnmaster,         {.i = -1 } },
-    { MODKEY,                       -1,                 XK_h,           setmfact,           {.f = -0.05} },
-    { MODKEY,                       -1,                 XK_l,           setmfact,           {.f = +0.05} },
+    //{ MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
+    //{ MODKEY|ControlMask|ShiftMask, -1,                 XK_g,           incnmaster,         {.i = -1 } },
+
+    { MODKEY,                       -1,                 XK_j,           setmfact,           {.f = -0.1} },
+    { MODKEY,                       -1,                 XK_k,           setmfact,           {.f = +0.01} },
+    { MODKEY,                       -1,                 XK_h,           focusstack,         {.i = +1 } },
+    { MODKEY,                       -1,                 XK_l,           focusstack,         {.i = -1 } },
 
     { MODKEY,                       -1,                 XK_Return,      zoom,               {0} },
     { MODKEY,                       -1,                 XK_Tab,         view,               {0} },
@@ -94,10 +97,8 @@ static const Key keys[] = {
     { MODKEY,                       -1,                 XK_0,           view,               {.ui = ~0 } },
     { MODKEY|ShiftMask,             -1,                 XK_0,           tag,                {.ui = ~0 } },
 
-    { MODKEY,                       -1,                 XK_j,           focusstack,         {.i = +1 } },
-    { MODKEY,                       -1,                 XK_k,           focusstack,         {.i = -1 } },
-    { MODKEY|ShiftMask,             -1,                 XK_j,           focusmon,           {.i = +1 } },
-    { MODKEY|ShiftMask,             -1,                 XK_k,           focusmon,           {.i = -1 } },
+    { MODKEY|ShiftMask,             -1,                 XK_l,           focusmon,           {.i = +1 } },
+    { MODKEY|ShiftMask,             -1,                 XK_h,           focusmon,           {.i = -1 } },
     { MODKEY|ShiftMask,             -1,                 XK_g,           tagmon,             {.i = -1 } },
     { MODKEY,                       -1,                 XK_g,           tagmon,             {.i = +1 } },
 
