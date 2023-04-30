@@ -177,7 +177,6 @@ static long getstate(Window w);
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
-static void incnmaster(const Arg *arg);
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
@@ -234,7 +233,6 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
-static void changelayer();
 
 /* variables */
 static const char broken[] = "broken";
@@ -362,7 +360,7 @@ void cropresize(Client* c) {
            MIN(c->h, c->crop->y + c->crop->h), 0);
 }
 /* }}} */
-/* layout {{{ */
+/* layout {{{
 void changelayer(const Arg *arg) {
 
         FILE *fp;
@@ -373,7 +371,7 @@ void changelayer(const Arg *arg) {
         fprintf(fp, "%d", current_layer);
         fclose(fp);
 }
-/* }}} */
+}}} */
 
 void
 applyrules(Client *c)
@@ -1012,14 +1010,6 @@ grabkeys(void)
                         True, GrabModeAsync, GrabModeAsync);
             }
     }
-}
-
-void
-incnmaster(const Arg *arg)
-{
-    selmon->nmaster = selmon->pertag->nmasters[selmon->pertag->curtag] =
-        MAX(selmon->nmaster + arg->i, 0);
-    arrange(selmon);
 }
 
 #ifdef XINERAMA
