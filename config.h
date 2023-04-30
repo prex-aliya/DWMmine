@@ -29,9 +29,9 @@ static const char *colors[][3]      = {
 /* appearance }}} */
 
 /* tagging -------------------------------------------------{{{ */
-//static unsigned const int layers = 3;
+// TODO: Remove need for names V
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
-    "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" };
+    "13", "14", "15", "16" };
 static const Rule rules[] = {
     /* xprop(1):
      *  WM_CLASS(STRING) = instance, class
@@ -52,20 +52,21 @@ static const Layout layouts[] = { // TODO: remove symbol
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "[M]",      monocle }, // TODO: Remove this layout
 };
 /* layout(s) -----------------------------------------------}}} */
 
-/* key definitions ----------------------------------------- {{{ */
+/* Key Definitions ----------------------------------------- {{{ */
 #define MODKEY Mod4Mask
 #define AltKey Mod1Mask
 #define TAGKEYS(CHAIN, KEY,TAG) \
     { MODKEY,                       CHAIN,      KEY,      view,           {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask,           CHAIN,      KEY,      toggleview,     {.ui = 1 << TAG} }, \
-    { MODKEY|ShiftMask,             CHAIN,      KEY,      tag,            {.ui = 1 << TAG} }, \
-    { MODKEY|ControlMask|ShiftMask, CHAIN,      KEY,      toggletag,      {.ui = 1 << TAG} },
+    { MODKEY|ShiftMask,             CHAIN,      KEY,      tag,            {.ui = 1 << TAG} },
+    //{ MODKEY|ControlMask|ShiftMask, CHAIN,      KEY,      toggletag,      {.ui = 1 << TAG} }, // No need for this
 
-/* commands */
+/* Commands */
+
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 //static const char *dmenucmd2[] = { "rofi -show run", NULL };
 static const char *termcmd[]  = { "st", NULL };
@@ -75,13 +76,10 @@ static const char *screenlock[]  = { "slock", NULL };
 static const Key keys[] = {
     /* modifier                     chain               key             function            argument */
     { MODKEY,                       -1,                 XK_p,           spawn,              {.v = dmenucmd } },
-    //{ MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v = dmenucmd2 } },
     { MODKEY|ShiftMask,             -1,                 XK_Return,      spawn,              {.v = termcmd } },
     { MODKEY,                       -1,                 XK_o,           spawn,              {.v = mouse}},
     { MODKEY,                       -1,                 XK_c,           spawn,              {.v = screenlock} },
 
-    //{ MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
-    //{ MODKEY|ControlMask|ShiftMask, -1,                 XK_g,           incnmaster,         {.i = -1 } },
 
     { MODKEY,                       -1,                 XK_j,           setmfact,           {.f = -0.1} },
     { MODKEY,                       -1,                 XK_k,           setmfact,           {.f = +0.01} },
@@ -102,9 +100,6 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             -1,                 XK_g,           tagmon,             {.i = -1 } },
     { MODKEY,                       -1,                 XK_g,           tagmon,             {.i = +1 } },
 
-    { MODKEY,                       -1,                 XK_z,           changelayer,        {0} },
-
-
     TAGKEYS(                        -1,                 XK_1,                               0)
     TAGKEYS(                        -1,                 XK_2,                               1)
     TAGKEYS(                        -1,                 XK_3,                               2)
@@ -116,31 +111,20 @@ static const Key keys[] = {
     TAGKEYS(                        -1,                 XK_9,                               8)
 
     { MODKEY,                       XK_b,               XK_b,           view,               {.ui = 1 << 9} },
-    TAGKEYS(                        XK_b,               XK_b,                               9)
-    TAGKEYS(                        XK_b,               XK_1,                               9)
-    TAGKEYS(                        XK_b,               XK_2,                               10)
-    TAGKEYS(                        XK_b,               XK_3,                               11)
-    TAGKEYS(                        XK_b,               XK_4,                               12)
-    TAGKEYS(                        XK_b,               XK_5,                               13)
-    TAGKEYS(                        XK_b,               XK_6,                               14)
-    TAGKEYS(                        XK_b,               XK_7,                               15)
-    TAGKEYS(                        XK_b,               XK_8,                               16)
-    TAGKEYS(                        XK_b,               XK_9,                               17)
+    TAGKEYS(                        XK_b,               XK_1,                               10)
+    TAGKEYS(                        XK_b,               XK_2,                               11)
+    TAGKEYS(                        XK_b,               XK_3,                               12)
 
-    { MODKEY,                       XK_m,               XK_m,           view,               {.ui = 1 << 18} },
-    TAGKEYS(                        XK_m,               XK_m,                               18)
-    TAGKEYS(                        XK_m,               XK_1,                               18)
-    TAGKEYS(                        XK_m,               XK_2,                               19)
-    TAGKEYS(                        XK_m,               XK_3,                               20)
-    TAGKEYS(                        XK_m,               XK_4,                               21)
-    TAGKEYS(                        XK_m,               XK_5,                               22)
-    TAGKEYS(                        XK_m,               XK_6,                               23)
-    TAGKEYS(                        XK_m,               XK_7,                               24)
-    TAGKEYS(                        XK_m,               XK_8,                               25)
-    TAGKEYS(                        XK_m,               XK_9,                               26)
+    { MODKEY,                       XK_m,               XK_m,           view,               {.ui = 1 << 13} },
+    TAGKEYS(                        XK_m,               XK_2,                               14)
+    TAGKEYS(                        XK_m,               XK_2,                               15)
 
 
-    { MODKEY|AltKey,                -1,                 XK_q,           quit,               {0} }, /* EXIT */
+    { MODKEY|AltKey,                XK_q,                 XK_q,           quit,               {0} }, /* EXIT */
+
+    //{ MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v = dmenucmd2 } },
+    //{ MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
+    //{ MODKEY|ControlMask|ShiftMask, -1,                 XK_g,           incnmaster,         {.i = -1 } },
 };
 
 /* button definitions */
