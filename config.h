@@ -117,7 +117,7 @@ static const Key keys[] = {
     TAGKEYS(                        XK_b,               XK_3,                               12)
 
     { MODKEY,                       XK_m,               XK_m,           view,               {.ui = 1 << 13} },
-    TAGKEYS(                        XK_m,               XK_2,                               14)
+    TAGKEYS(                        XK_m,               XK_1,                               14)
     TAGKEYS(                        XK_m,               XK_2,                               15)
 
 
