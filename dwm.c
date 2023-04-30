@@ -662,9 +662,6 @@ configurenotify(XEvent *e)
         sh = ev->height;
         if (updategeom() || dirty) {
             for (m = mons; m; m = m->next) {
-                /* for (c = m->clients; c; c = c->next)
-                 *  if (c->isfullscreen) TODO: RemoveThis
-                 *      resizeclient(c, m->mx, m->my, m->mw, m->mh); */
                 XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh);
             }
             focus(NULL);
