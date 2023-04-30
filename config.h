@@ -84,8 +84,8 @@ static const Key keys[] = {
 
     { MODKEY,                       -1,                 XK_j,           setmfact,           {.f = -0.1} },
     { MODKEY,                       -1,                 XK_k,           setmfact,           {.f = +0.01} },
-    { MODKEY,                       -1,                 XK_h,           focusstack,         {.i = +1 } },
-    { MODKEY,                       -1,                 XK_l,           focusstack,         {.i = -1 } },
+    { MODKEY,                       -1,                 XK_l,           focusstack,         {.i = +1 } },
+    { MODKEY,                       -1,                 XK_h,           focusstack,         {.i = -1 } },
 
     { MODKEY,                       -1,                 XK_Return,      zoom,               {0} },
     { MODKEY,                       -1,                 XK_Tab,         view,               {0} },
