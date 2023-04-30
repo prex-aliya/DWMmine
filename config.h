@@ -96,8 +96,8 @@ static const Key keys[] = {
     { MODKEY,                       -1,                 XK_0,           view,               {.ui = ~0 } },
     { MODKEY|ShiftMask,             -1,                 XK_0,           tag,                {.ui = ~0 } },
 
-    { MODKEY|ShiftMask,             -1,                 XK_l,           focusmon,           {.i = +1 } },
-    { MODKEY|ShiftMask,             -1,                 XK_h,           focusmon,           {.i = -1 } },
+    { MODKEY|ShiftMask,             -1,                 XK_h,           focusmon,           {.i = +1 } },
+    { MODKEY|ShiftMask,             -1,                 XK_l,           focusmon,           {.i = -1 } },
     { MODKEY|ShiftMask,             -1,                 XK_g,           tagmon,             {.i = -1 } },
     { MODKEY,                       -1,                 XK_g,           tagmon,             {.i = +1 } },
 
