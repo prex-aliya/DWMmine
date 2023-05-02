@@ -82,6 +82,9 @@ static const Key keys[] = {
     { MODKEY,                       -1,                 XK_c,           spawn,              {.v = screenlock} },
 
 
+    { MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
+    { MODKEY|ControlMask|ShiftMask, -1,                 XK_g,           incnmaster,         {.i = -1 } },
+
     { MODKEY,                       -1,                 XK_j,           setmfact,           {.f = -0.01} },
     { MODKEY,                       -1,                 XK_k,           setmfact,           {.f = +0.01} },
     { MODKEY,                       -1,                 XK_l,           focusstack,         {.i = +1 } },
@@ -124,8 +127,6 @@ static const Key keys[] = {
     { MODKEY|AltKey,                XK_q,                 XK_q,           quit,               {0} }, /* EXIT */
 
     //{ MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v = dmenucmd2 } },
-    { MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
-    { MODKEY|ControlMask|ShiftMask, -1,                 XK_g,           incnmaster,         {.i = -1 } },
 };
 
 /* button definitions */
