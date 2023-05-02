@@ -124,8 +124,8 @@ static const Key keys[] = {
     { MODKEY|AltKey,                XK_q,                 XK_q,           quit,               {0} }, /* EXIT */
 
     //{ MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v = dmenucmd2 } },
-    //{ MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
-    //{ MODKEY|ControlMask|ShiftMask, -1,                 XK_g,           incnmaster,         {.i = -1 } },
+    { MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
+    { MODKEY|ControlMask|ShiftMask, -1,                 XK_g,           incnmaster,         {.i = -1 } },
 };
 
 /* button definitions */
