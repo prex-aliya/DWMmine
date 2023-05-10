@@ -124,7 +124,7 @@ static const Key keys[] = {
     TAGKEYS(                        XK_m,               XK_2,                               15)
 
 
-    { MODKEY|AltKey,                XK_q,                 XK_q,           quit,               {0} }, /* EXIT */
+    { MODKEY|ShiftMask,                XK_z,                 XK_z,           quit,               {0} }, /* EXIT */
 
     //{ MODKEY|ShiftMask,             -1,                 XK_p,           spawn,              {.v = dmenucmd2 } },
 };
