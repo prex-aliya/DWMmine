@@ -72,7 +72,7 @@ static const char *dmenucmd[] = { "dmenu_run", NULL };
 //static const char *dmenucmd2[] = { "rofi -show run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *mouse[]  = { "xmouseless", NULL };
-static const char *screenlock[]  = { "slock", NULL };
+static const char *screenlock[]  = { "xset dpms force suspend & slock", NULL };
 
 static const Key keys[] = {
     /* modifier                     chain               key             function            argument */
