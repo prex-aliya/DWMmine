@@ -2,7 +2,7 @@
 
 __Now without Status Bar__
 
-![DWM](./.img/dwm.png) *needs updated*
+![DWM](./.img/dwm.png)
 
 This is my every day use case, dwm customization.
 Mine comes with out a status bar, because I have the most
