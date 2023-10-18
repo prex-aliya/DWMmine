@@ -8,23 +8,23 @@ static const char dmenufont[]       = "monospace:size=10";
 
 /* https://lospec.com/palette-list/cyberpunk-neons */
 /*                Darker > Lighter              */
-static const char col_pink1[]   =  "#0b001b";
-static const char col_pink2[]   =  "#4d004f";
-static const char col_pink3[]   =  "#c1115a";
-static const char col_pink4[]   =  "#e13a6a";
+static const char pink1[]   =  "#0b001b";
+static const char pink2[]   =  "#4d004f";
+static const char pink3[]   =  "#c1115a";
+static const char pink4[]   =  "#e13a6a";
 
-static const char col_blue1[]   =  "#03274c";
-static const char col_blue2[]   =  "#03274c";
-static const char col_blue3[]   =  "#0f9595";
-static const char col_blue4[]   =  "#53ebe4";
+static const char blue1[]   =  "#03274c";
+static const char blue2[]   =  "#03274c";
+static const char blue3[]   =  "#0f9595";
+static const char blue4[]   =  "#53ebe4";
 
-static const char col_red[]     = "#ff0546";
-static const char col_blue[]     = "#0ce6f2";
+static const char red[]     = "#ff0546";
+static const char blue[]     = "#0ce6f2";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_blue, col_blue, col_blue },
-	[SchemeSel]  = { col_red, col_red, col_red },
+	[SchemeNorm] = { blue, blue, blue },
+	[SchemeSel]  = { red, red, red },
 };
 /* appearance }}} */
 
@@ -72,7 +72,12 @@ static const char *dmenucmd[] = { "dmenu_run", NULL };
 //static const char *dmenucmd2[] = { "rofi -show run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *mouse[]  = { "xmouseless", NULL };
-static const char *screenlock[]  = { "slock", NULL };
+static const char *screenlock[]  = { "goodnight", NULL };
+static const char *editor[]  = { "emacs.sh", NULL };
+
+static const char *browser[]  = { "tor-browser", NULL };
+static const char *school[]  = { "school", NULL };
+static const char *smallbrowser[]  = { "badwolf", NULL };
 
 static const Key keys[] = {
     /* modifier                     chain               key             function            argument */
@@ -80,6 +85,11 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             -1,                 XK_Return,      spawn,              {.v = termcmd } },
     { MODKEY,                       -1,                 XK_o,           spawn,              {.v = mouse}},
     { MODKEY,                       -1,                 XK_c,           spawn,              {.v = screenlock} },
+    { MODKEY,                       -1,                 XK_e,           spawn,              {.v = editor} },
+
+    { MODKEY,                       XK_b,               XK_t,           spawn,              {.v = browser} },
+    { MODKEY,                       XK_b,               XK_s,           spawn,              {.v = school} },
+    { MODKEY,                       XK_b,               XK_c,           spawn,              {.v = smallbrowser} },
 
 
     { MODKEY|ControlMask,           -1,                 XK_g,           incnmaster,         {.i = +1 } },
@@ -99,8 +109,8 @@ static const Key keys[] = {
     { MODKEY,                       -1,                 XK_0,           view,               {.ui = ~0 } },
     { MODKEY|ShiftMask,             -1,                 XK_0,           tag,                {.ui = ~0 } },
 
-    { MODKEY|ShiftMask,             -1,                 XK_h,           focusmon,           {.i = +1 } },
-    { MODKEY|ShiftMask,             -1,                 XK_l,           focusmon,           {.i = -1 } },
+    { MODKEY|ShiftMask,             -1,                 XK_h,           focusmon,           {.i = -1 } },
+    { MODKEY|ShiftMask,             -1,                 XK_l,           focusmon,           {.i = +1 } },
     { MODKEY|ShiftMask,             -1,                 XK_g,           tagmon,             {.i = -1 } },
     { MODKEY,                       -1,                 XK_g,           tagmon,             {.i = +1 } },
 
