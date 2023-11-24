@@ -1,4 +1,4 @@
-<h1 align="center" style="font-size:72px">DWMmine (custom build)</h1>
+<h1 align="center" style="font-size:72px">MiWM (Mine DWM)</h1>
 
 This is a complete rebuild of dwm, main for learning purposes, and to possibly
 make some new patches for myself.
